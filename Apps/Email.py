@@ -5,7 +5,7 @@ from email.mime.multipart import MIMEMultipart
 # Email configuration
 sender_email = "your_email@gmail.com"
 receiver_email = "recipient_email@example.com"
-subject = "Hello from Python!"
+subject = "Hello people!"
 message = "This is a test email sent from Python."
 
 # SMTP server configuration (Gmail in this example)
