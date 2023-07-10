@@ -2,7 +2,7 @@
 
 # Python Programming Language
 
-Python is an interpreted, high-level, general-purpose programming language. It was created by Guido van Rossum and first released in 1991. Python's design philosophy emphasizes code readability with its notable use of significant indentation. Its language constructs and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.
+Python is an interpreted, high-level, general-purpose programming language. It was created by Guido van Rossum and first released in 1991. The language constructs and object-oriented (OOP) approach aim to help programmers write clear, logical code for small and large-scale projects.
 
 ## Usage
 Python is used in diverse areas such as:
