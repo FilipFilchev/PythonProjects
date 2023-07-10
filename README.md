@@ -185,4 +185,15 @@ predicted_emotion = class_labels[max_index]
 print(predicted_emotion)
 ```
 
+# AlgoTrading
+Python can also be used for trading data analytics and algorithmic trading with strategies such:
 
+- Sentiment analysis
+- Mean Reversion
+- Arbitrage
+- Momentum Trading
+- High-Frequency Trading (HFT)
+
+  ### see more in the folder: AlgoTrading
+
+  ![AlgoTrading](./img4.png "My Image")
