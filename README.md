@@ -19,6 +19,9 @@ Python is used in diverse areas such as:
 - Testing / Automation
 Python is easy to pick up, but it's also powerful enough to run major websites like Pinterest and Instagram.
 
+![ML](./img1.jpeg "My Image")
+
+![ML](./img3.png "My Image")
 
 ## Data Types: Python has five standard data types: Numbers, String, List, Tuple, Dictionary. For example:
 ```
@@ -119,6 +122,8 @@ model.fit(X, Y, epochs=500)
 print(model.predict([10.0]))  # It should be close to 20
 ```
 ## Simple Emotion Recognition via CNNs & TensorFlow
+
+![ML](./img2.png "My Image")
 
 ```
 import numpy as np
