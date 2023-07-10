@@ -1,1 +1,0 @@
-Add tictactoe game; tetris game; snakepy game; todoapp
