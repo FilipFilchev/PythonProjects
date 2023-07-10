@@ -121,6 +121,33 @@ model.fit(X, Y, epochs=500)
 # Predict
 print(model.predict([10.0]))  # It should be close to 20
 ```
+## A Convolutional Neural Network (CNN)
+is a class of deep learning models, mainly used for image processing tasks. A CNN uses convolutional, pooling, and fully connected layers to process and learn from input data.
+
+- Key Layers:
+
+Convolutional Layer: Applies a specified number of convolution filters to the image.
+Pooling Layer: Reduces the spatial size (width, height) to decrease processing time and control overfitting.
+Fully Connected Layer: Produces the final classification from the features learned by the previous layers.
+Here's a minimalistic example of a CNN using Keras:
+
+```
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+
+model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(64, 64, 3)),
+    MaxPooling2D(pool_size=(2, 2)),
+    Flatten(),
+    Dense(10, activation='softmax'),
+])
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+```
+
+This model is a basic CNN that includes a convolutional layer, a pooling layer, a layer to flatten the data, and a fully connected layer for classification. Replace input_shape and the last Dense layer's units as per your data.
+
 ## Simple Emotion Recognition via CNNs & TensorFlow
 
 ![ML](./img2.png "My Image")
