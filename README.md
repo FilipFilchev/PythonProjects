@@ -30,10 +30,12 @@ string = "Hello, World!" # This is a string
 list = [1, 2, 3, "a", "b", "c"] # This is a list
 tuple = (1, 2, "a", "b") # This is a tuple
 dictionary = {"name": "John", "age": 30} # This is a dictionary
+
+```
 Control Flow: Python uses if, for, and while for control flow. For example:
-python
-Copy code
+
 # Using if
+```
 x = 10
 if x > 0:
     print("Positive")
