@@ -1,6 +1,6 @@
 # Tic-Tac-Toe Console Game
 
-# Create the board
+# Create the matrix 3*3
 board = [' ' for _ in range(9)]
 
 # Function to print the board
