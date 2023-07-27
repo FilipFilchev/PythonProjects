@@ -197,3 +197,11 @@ Python can also be used for trading data analytics and algorithmic trading with 
   ### see more in the folder: AlgoTrading
 
   ![AlgoTrading](./img4.png "My Image")
+
+
+  # Audio Filter
+  Using Fourier Transform to filter audio data and reduce noice
+
+  ### see more in dir: audioFilter
+![Filter](./audioFilter.png "Filter")
+  
