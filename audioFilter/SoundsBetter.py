@@ -1,8 +1,5 @@
-
-"""
-test it extensivly
-"""
 import tkinter as tk
+from tkinter import ttk
 from tkinter import filedialog
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -13,20 +10,29 @@ import numpy as np
 
 class Application(tk.Frame):
     def __init__(self, master=None):
-        super().__init__(master)
+        super().__init__(master, bg='light green')
         self.master = master
+        self.master.title("Sounds Better audioFilter")  # set application name
         self.grid()
         self.create_widgets()
+        
+        intro_text = self.figure.suptitle('Sounds Better audioFilter\nCheckout the results down below', fontsize=14, fontweight='bold')  #introductory text
 
     def create_widgets(self):
-        self.select_button = tk.Button(self)
+        style = ttk.Style()
+        style.configure('TButton', font=('calibri', 15, 'bold'), 
+                        foreground='red')  # create styled button
+
+        self.select_button = ttk.Button(self, style='TButton')
         self.select_button["text"] = "Select WAV file"
         self.select_button["command"] = self.select_file
         self.select_button.grid(row=0, column=0)
 
-        self.figure = Figure(figsize=(5, 4), dpi=100)
+        self.figure = Figure(figsize=(5, 5), dpi=100)  # increase figure size for more space between subplots
         self.canvas = FigureCanvasTkAgg(self.figure, master=self)
         self.canvas.get_tk_widget().grid(row=1, column=0)
+
+        
 
     def select_file(self):
         filepath = filedialog.askopenfilename(filetypes=[("WAV files", "*.wav")])
@@ -38,30 +44,37 @@ class Application(tk.Frame):
         # Load audio file
         data, rate = librosa.load(filepath, sr=None)
 
-        # Create a spectrogram of the audio
-        freqs, times, spec = spectrogram(data, fs=rate, nperseg=2048)
+        #Fourier Transform
 
-        # Select a section of audio where only noise is present
-        noise_freqs, noise_times, noise_spec = spectrogram(data[10000:15000], fs=rate, nperseg=2048)
+        # Compute the STFT
+        Fdata = librosa.stft(data, n_fft=2048)
+    
+        # Compute the magnitude spectrogram
+        spec = np.abs(Fdata)
 
-        # Estimate the noise power spectral density
-        noise_psd = np.mean(noise_spec, axis=1)
+        # Estimate the noise using the mean of the magnitude spectrogram
+        noise_psd = np.mean(spec, axis=1)
 
         # Perform spectral subtraction
-        reduction_factor = 0.3  # Reduce this value to decrease the amount of noise reduction
-        clean_spec = spec - noise_psd[:, None]
+        reduction_factor = 1  # Adjust this value to change the amount of noise reduction
+        clean_spec = spec - noise_psd[:, None] * reduction_factor
         clean_spec = np.maximum(clean_spec, 0)
 
+        # Reconstruct the complex spectrogram using the cleaned magnitude and original phase
+        clean_data = clean_spec * np.exp(1j * np.angle(Fdata))
+    
         # Convert back to time domain
-        _, reduced_noise = istft(clean_spec, fs=rate)
+        reduced_noise = librosa.istft(clean_data)
 
         # Save the result
         sf.write("output_clean.wav", reduced_noise, rate)
 
         # Plot original and cleaned audio
         self.figure.clear()
-        ax1 = self.figure.add_subplot(211)
-        ax2 = self.figure.add_subplot(212)
+        
+        
+        ax1 = self.figure.add_subplot(311)
+        ax2 = self.figure.add_subplot(312)
 
         time = np.arange(len(data)) / rate
         ax1.plot(time, data)
@@ -71,11 +84,13 @@ class Application(tk.Frame):
         ax2.plot(time, reduced_noise)
         ax2.set_title("Cleaned audio")
 
+        self.figure.subplots_adjust(hspace=1)  # vertical space between subplots
         self.canvas.draw()
 
 root = tk.Tk()
 app = Application(master=root)
 app.mainloop()
+
 
 
 
