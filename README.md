@@ -7,7 +7,7 @@ Python is an interpreted, high-level, general-purpose programming language. It w
 ## Usage
 Python is used in diverse areas such as:
 
-- Web and Internet Development
+- Web Development
 - Scientific and Numeric computing (matplotlib, scipy, numpy)
 - Education (Python is a great language for beginner programmers)
 - Desktop GUIs
@@ -17,19 +17,20 @@ Python is used in diverse areas such as:
 - Machine Learning
 - Trading
 - Testing / Automation
-Python is easy to pick up, but it's also powerful enough to run major websites like Pinterest and Instagram.
+
 
 ![ML](./img1.jpeg "My Image")
 
 ![ML](./img3.png "My Image")
 
-## Data Types: Python has five standard data types: Numbers, String, List, Tuple, Dictionary. For example:
+## Data Types: Python has 6 standard data types: Integer, String, List, Tuple, Set, Dictionary. For example:
 ```
 num = 123 # This is a number
 string = "Hello, World!" # This is a string
 list = [1, 2, 3, "a", "b", "c"] # This is a list
 tuple = (1, 2, "a", "b") # This is a tuple
 dictionary = {"name": "John", "age": 30} # This is a dictionary
+set = {"set", "it"}
 
 ```
 Control Flow: Python uses if, for, and while for control flow. For example:
@@ -96,8 +97,9 @@ Python has a robust ecosystem with a vast selection of libraries and frameworks.
 - For Web Development: Django, Flask
 - For Data Analysis/ML: Pandas, Numpy, Matplotlib, Scikit-learn, Tensorflow, Scipy
 - For Automation/Testing: Selenium, Pytest, Unittest
-- For Trading: Zipline, Backtrader
-- For Vision: DeepFace, HuggingFace, Keras
+- For Trading: Zipline, Backtrader, Bert
+- For AI: DeepFace, HuggingFace, Keras
+- For Apps/Games: Pygame, Pyglet, Kivy, Tkinter
 
 ## Simple Linear Regression with TensorFlow
 
