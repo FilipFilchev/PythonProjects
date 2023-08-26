@@ -41,7 +41,7 @@ class Application(tk.Frame):
         self.process_file(filepath)
 
     def process_file(self, filepath):
-        # Load audio file
+        # Load audio file.
         data, rate = librosa.load(filepath, sr=None)
 
         #Fourier Transform
