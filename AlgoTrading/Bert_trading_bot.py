@@ -1,3 +1,4 @@
+#Trading predictions based on CSV-file data set
 # Import necessary libraries
 import pandas as pd
 from transformers import BertForSequenceClassification, BertTokenizer
@@ -6,7 +7,7 @@ from transformers import BertForSequenceClassification, BertTokenizer
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased')
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
-# Read in financial data
+# Read in financial data using CSV file
 df = pd.read_csv('stock_data.csv')
 
 # Clean and organize data
