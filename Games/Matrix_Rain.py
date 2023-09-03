@@ -1,5 +1,5 @@
 # Binary Matrix Vision with 0s and 1s in depth with "shining through" effect 
-
+#The shining effect is due to tracking the brightness of each pixel, but it can be achieved simpler in next iteration using grayscale/CNN filters or simply opencv "cv2"
 
 import pygame as pg
 import numpy as np
@@ -140,3 +140,90 @@ if __name__ == '__main__':
     displayApp.run()
 
 
+"""PSEUDO CODE:
+
+MODULES:
+    - Load pygame as pg
+    - Load numpy as np
+    - Load pygame's camera module
+
+CLASS BinaryMatrix:
+
+    INIT(display, font_size=8):
+        - SET self's display from given display
+        - SET font size
+        - CALCULATE number of rows and columns from display dimensions and fontsize
+        - INITIALIZE a matrix filled with random 0s and 1s
+        - ASSIGN random intervals for character change
+        - ASSIGN random speeds for column movement
+        - Point to PRE-RENDER characters function
+
+    FUNCTION get_frame():
+        - FETCH current frame from camera
+        - SCALE image to display resolution
+        - CONVERT image to pixel array
+        - RETURN pixel array
+
+    FUNCTION get_prerendered_chars():
+        - FOR each shade of green:
+            - RENDER '0' and '1' with that shade
+        - STORE prerendered characters
+        - RETURN prerendered characters
+
+    FUNCTION run():
+        - FETCH current time since program start
+        - CALL function to change characters based on time
+        - CALL function to change columns based on time
+        - DRAW the matrix
+
+    FUNCTION columnChange(frames):
+        - FIND which columns need to shift based on current time
+        - MOVE identified columns downward
+
+    FUNCTION charsChange(frames):
+        - IDENTIFY which characters should change based on current time
+        - CHANGE identified characters to random 0 or 1
+
+    FUNCTION draw():
+        - FETCH current frame from the camera
+        - FOR each character in the matrix:
+            - DETERMINE its color based on the camera's image brightness
+            - ADJUST the brightness if needed
+            - RENDER the character with the right color and brightness
+            - DISPLAY the character on screen
+
+CLASS MatrixDisplay:
+
+    INIT():
+        - SET display resolution
+        - INITIALIZATE pygame
+        - CREATE the main window
+        - CREATE a drawing surface
+        - INITIALIZE a clock for frame rate control
+        - CREATE a BinaryMatrix object
+        - START the camera
+
+    FUNCTION draw():
+        - CLEAR the drawing surface with black
+        - UPDATE and DRAW the binary matrix
+        - DISPLAY the drawing surface on the main window
+
+    FUNCTION run():
+        - REPEAT INFINITELY:
+            - CALL the draw function
+            - CHECK for any events (like window close)
+            - IF a close event is found:
+                - TERMINATE the program
+            - UPDATE the window display
+            - WAIT to maintain a steady frame rate
+
+MAIN:
+    - IF this script is the main program:
+        - CREATE a MatrixDisplay object
+        - START the MatrixDisplay's run function
+
+END
+
+
+
+-----------------------------------------------------------------------"""
