@@ -1,4 +1,4 @@
-## ML, ChatBots, Algo Trading, Games, Apps
+## Python Apps & Games + Notebook-Tutorials 
 
 # Python Programming Language
 
