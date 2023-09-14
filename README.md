@@ -124,6 +124,8 @@ model.fit(X, Y, epochs=500)
 
 # Predict
 print(model.predict([10.0]))  # It should be close to 20
+
+
 ```
 ## A Convolutional Neural Network (CNN)
 is a class of deep learning models, mainly used for image processing tasks. A CNN uses convolutional, pooling, and fully connected layers to process and learn from input data.
@@ -185,6 +187,9 @@ max_index = np.argmax(predictions[0])
 predicted_emotion = class_labels[max_index]
 
 print(predicted_emotion)
+
+Output(Example)
+--------Happy----------
 ```
 
 # AlgoTrading
