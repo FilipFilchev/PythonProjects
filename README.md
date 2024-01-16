@@ -17,6 +17,8 @@ Python is used in diverse areas such as:
 - Machine Learning
 - Trading
 - Testing / Automation
+- Audio Processing
+- Voice Assistants
 
 
 ![ML](./img1.jpeg "My Image")
@@ -211,4 +213,10 @@ Python can also be used for trading data analytics and algorithmic trading with 
 
   ### see more in dir: audioFilter
 ![Filter](./audioFilter.png "Filter")
-  
+
+
+   # Voice Assistant
+  Using Transformers and STT/TTS transcribers to speak with your chatbot
+
+  ### see more in repo: RaspberryPi & ChatBot
+![voiceassistant](./VoiceAssistant.png "Assistant")
