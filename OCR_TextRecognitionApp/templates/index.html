@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Web App</title>
+</head>
+<body>
+    <h1>Upload Image for OCR</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Submit</button>
+    </form>
+    {% if uploaded_image %}
+        <h2>Processed Image:</h2>
+        <img src="data:image/jpeg;base64,{{ uploaded_image }}" alt="Processed Image">
+        <h2>Detected Text:</h2>
+        <p>{{ extracted_text }}</p>
+    {% endif %}
+</body>
+</html>
